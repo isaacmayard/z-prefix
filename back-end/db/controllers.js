@@ -1,5 +1,11 @@
 const knex = require("./dbConnection");
 
 module.exports = {
-    //KNEX queries go here!
-}
+  getItems: () => {
+    return knex.select("*").from("items");
+  },
+
+  getUsers: () => {
+    return knex.select("*").from("users");
+  },
+};
