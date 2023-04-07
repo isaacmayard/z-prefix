@@ -1,26 +1,24 @@
 import React, { useRef, useState, useContext } from "react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 
 import { DismissableAlert } from "./DismissableAlert";
 import { Context } from "./App";
 import "../stylesheets/AdminPage.css";
 
 const AdminPage = () => {
-  const { userId, count, setCount } = useContext(Context);
+  const { currentUser } = useContext(Context);
   const [authMode, setAuthMode] = useState("deleteUser");
   const [showAlert, setShowAlert] = useState(false);
   const [alertObj, setAlertObj] = useState({});
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
   let modificationObj = useRef({});
-  const navigate = useNavigate();
 
   const changeAuthMode = (value) => {
     setShowAlert(false);
     setAuthMode(value);
   };
-console.log("HERE", userId)
+
   const handleDeleteUser = () => {
     fetch("http://localhost:8080/users-mgmt", {
       method: "DELETE",
@@ -72,7 +70,7 @@ console.log("HERE", userId)
   };
 
   const handleAddItem = () => {
-    modificationObj.current["user_id"] = userId !== 1 ? userId : 1;
+    modificationObj.current["user_id"] = currentUser !== 1 ? currentUser : 1;
     fetch("http://localhost:8080/items", {
       method: "POST",
       headers: {
@@ -98,7 +96,7 @@ console.log("HERE", userId)
   };
 
   const handleEditItem = () => {
-    modificationObj.current["user_id"] = userId !== 1 ? userId : 1;
+    modificationObj.current["user_id"] = currentUser !== 1 ? currentUser : 1;
     fetch("http://localhost:8080/items", {
       method: "PUT",
       headers: {
@@ -131,13 +129,13 @@ console.log("HERE", userId)
   if (authMode === "deleteUser") {
     return (
       <div className="Auth-form-container-admin">
-        <form className="Auth-form bg-dark" onSubmit={handleSubmit}>
+        <form className="Auth-form" onSubmit={handleSubmit} style={{backgroundColor: 'rgb(37, 37, 125)'}}>
           <div className="Auth-form-content">
-            <h3 className="Auth-form-title text-primary">Admin Panel</h3>
+            <h3 className="Auth-form-title text-light">Admin Panel</h3>
             <DropdownButton
               id="dropdown-select-button"
               title="Select Action"
-              variant="outline-primary"
+              variant="outline-light"
             >
               <Dropdown.Item onClick={() => changeAuthMode("deleteUser")}>
                 Delete User
@@ -167,7 +165,7 @@ console.log("HERE", userId)
             <div className="d-grid gap-2 mt-3">
               <button
                 type="submit"
-                className="btn btn-outline-primary"
+                className="btn btn-outline-light"
                 onClick={() => handleDeleteUser()}
               >
                 Delete User
@@ -292,7 +290,6 @@ console.log("HERE", userId)
                 className="btn btn-outline-primary"
                 onClick={() => {
                   handleAddItem();
-                  setCount(1)
                 }}
               >
                 Add Item

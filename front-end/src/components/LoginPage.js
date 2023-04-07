@@ -5,8 +5,8 @@ import { Context } from "./App";
 const LoginPage = () => {
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
-  const [auth, setAuth] = useState();
-  const { setLoggedIn, username, setUsername } = useContext(Context);
+  const { setLoggedIn, username, setUsername, setCurrentUser } =
+    useContext(Context);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,8 +20,8 @@ const LoginPage = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setAuth(data);
-        if (auth === true) {
+        setCurrentUser(data.msg);
+        if (data.msg) {
           setLoggedIn(true);
           navigate("/personal", {
             state: { isLoggedIn: true, username: username },

@@ -4,7 +4,8 @@ import { Context } from "./App";
 
 const Register = () => {
   const [password, setPassword] = useState("");
-  const { setLoggedIn, username, setUsername, setUserId } = useContext(Context);
+  const { setLoggedIn, username, setUsername, setCurrentUser } =
+    useContext(Context);
   const navigate = useNavigate();
   const registerOptions = {
     method: "POST",
@@ -20,11 +21,13 @@ const Register = () => {
     fetch("http://localhost:8080/users", registerOptions)
       .then((res) => res.json())
       .then((data) => {
-        setUserId(data[0].id);
-        setLoggedIn(true);
-        navigate("/personal", {
-          state: { isLoggedIn: true, username: username },
-        });
+        setCurrentUser(data[0].id);
+        if (data[0].id) {
+          setLoggedIn(true);
+          navigate("/personal", {
+            state: { isLoggedIn: true, username: username },
+          });
+        }
       })
       .catch((err) => alert(err));
   };

@@ -6,7 +6,7 @@ module.exports = {
   },
 
   getPersonalItems: (req) => {
-    return knex.select("*").from("items").where('user_id', req.get('user_id'));
+    return knex.select("*").from("items").where("user_id", req.get("user_id"));
   },
 
   getUsers: () => {
@@ -36,7 +36,6 @@ module.exports = {
   },
 
   updateItem: (req) => {
-    console.log(req.body.updated);
     return knex
       .select("*")
       .from("items")

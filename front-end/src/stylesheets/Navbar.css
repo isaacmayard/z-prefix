@@ -22,6 +22,10 @@
   margin-right: 5%;
 }
 
+.user-span:hover {
+  cursor: pointer;
+}
+
 h1:hover {
   cursor: pointer;
 }

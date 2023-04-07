@@ -5,7 +5,7 @@ import DetailsPage from "./DetailsPage";
 import LoginPage from "./LoginPage";
 import Register from "./Register";
 import AdminPage from "./AdminPage";
-import PersonalPage from './PersonalPage'
+import PersonalPage from "./PersonalPage";
 
 const RouteHandler = () => {
   return (

@@ -6,14 +6,20 @@ import "../stylesheets/Navbar.css";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { loggedIn, setLoggedIn, username, setUserId } =
+  const { loggedIn, setLoggedIn, username, render, setRender } =
     React.useContext(Context);
-
+  console.log("this is what render is on navbar", render);
   return (
     <nav>
       <Row className="nav">
         <Col className="mt-2">
-          <h1 onClick={() => navigate("/")} className="header text-light">
+          <h1
+            onClick={() => {
+              navigate("/");
+              setRender((prevCount) => prevCount + 1);
+            }}
+            className="header text-light"
+          >
             Best Car Website Ever
           </h1>
         </Col>
@@ -28,9 +34,11 @@ const Navbar = () => {
             )}
             {!loggedIn ? (
               <button
-                className="btn btn-primary"
+                className="btn btn-light"
                 type="button"
-                onClick={() => navigate("/login")}
+                onClick={() => {
+                  navigate("/login");
+                }}
               >
                 Login
               </button>
@@ -39,10 +47,9 @@ const Navbar = () => {
             )}
             {loggedIn ? (
               <button
-                className="btn btn-primary"
+                className="btn btn-light"
                 type="button"
                 onClick={() => {
-                  setUserId(1)
                   setLoggedIn(false);
                   navigate("/");
                 }}
@@ -54,7 +61,7 @@ const Navbar = () => {
             )}
             {loggedIn ? (
               <button
-                className="btn btn-primary"
+                className="btn btn-light"
                 type="button"
                 onClick={() => navigate("/adminpage")}
               >
@@ -64,7 +71,7 @@ const Navbar = () => {
               <></>
             )}
             <button
-              className="btn btn-primary"
+              className="btn btn-light"
               type="button"
               onClick={() => {
                 navigate("/register");

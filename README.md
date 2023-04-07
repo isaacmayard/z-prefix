@@ -73,7 +73,7 @@
 
 > As an admin, you will be able to add, update and delete inventory items, as well as delete users, by clicking on the admin panel and following the instructions.
 
-> Once you've successfully performed a CRUD function in the admin page, you can opt to either go back to the homepage or the personal page, by clicking on the respective header.
+> Once you've successfully performed a CRUD function in the admin page, you can opt to either go back to the homepage or the personal page, by clicking on that respective header.
 
 **Rubric Rundown**
 
@@ -89,6 +89,10 @@
 
 
 
-**Key Notes**
+**Key Notes, "If I had more time", and bugs(if any)**
 
-> When you login as an existing user, you need to click twice or hit enter twice in order to be successfully logged in. This is due to the async functionality of the fetch happening with your credentials. If I had more time, I would fix this small issue as well as implement a cookie upon successful login that would keep your credentials persistent between page refreshes. Currently, if you refresh the page, you have to start over again, but functionality is all there.
+> IIHMT, I would implement a cookie upon successful login that would keep your credentials persistent between page refreshes. Currently, if you refresh the page, you have to start over again, but functionality is all there.
+
+> IIHMT, I would set up Bcrypt for the passwords as well.
+
+> IIHMT, I'd style it much better, but hey, rubric is king right?

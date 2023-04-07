@@ -28,15 +28,15 @@ app.get("/users", async (req, res) => {
       .select("*")
       .from("users")
       .where("username", req.get("username"))
+      .returning("id")
       .then((data) => {
         if (data.length === 0) {
           return false;
         }
-        return true;
+        return data[0].id;
       });
   }
-  console.log(userData);
-  res.status(200).send(userData);
+  res.status(200).send({ msg: userData });
 });
 
 app.post("/users", (req, res) => {
@@ -59,7 +59,6 @@ app.delete("/users-mgmt", async (req, res) => {
       .where("username", req.body.username)
       .del();
   }
-  console.log(user);
   res.status(200).send({ msg: `${user}` });
 });
 
@@ -69,7 +68,6 @@ app.delete("/items", async (req, res) => {
 });
 
 app.put("/items", async (req, res) => {
-  console.log(req.body.updated);
   var item = await controllers.updateItem(req);
   res.status(200).send(item);
 });

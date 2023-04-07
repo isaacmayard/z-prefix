@@ -4,14 +4,13 @@
   align-items: center;
   width: 100vw;
   height: 91vh;
-  /* background-image: url("../../public/mapBackground.png"); */
-  background-repeat: no-repeat;
   background-size: cover;
 }
 
 .Auth-form {
   width: 420px;
-  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+  background-color: rgb(37, 37, 125);
+  box-shadow: rgb(37, 37, 125);
   padding-top: 30px;
   padding-bottom: 20px;
   border-radius: 8px;

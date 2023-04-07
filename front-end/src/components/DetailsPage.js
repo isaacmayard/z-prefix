@@ -1,15 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
-// import { Context } from "./App";
-// import * as Icon from "react-bootstrap-icons";
 
 const DetailsPage = () => {
   const location = useLocation();
-  //   const { data, favorites, setFavorites } = useContext(Context);
-
-  // const [seasonClicked, setSeasonClicked] = useState("");
-  let crucialId = location.state.id;
   let name = location.state.name;
   let description = location.state.description;
   let quantity = location.state.quantity;
@@ -28,26 +22,6 @@ const DetailsPage = () => {
             <strong>{name}</strong>
             <p>{description}</p>
             <p>Quantity in stock: {quantity}</p>
-            {/* {favorites.find((favorite) => favorite.name === show.name) ? (
-              <button
-                id="detailFave"
-                className="faveButton"
-                key={show.id}
-                type="submit"
-                onClick={() =>
-                  setFavorites(favorites.filter((fave) => fave !== show))
-                }
-              >
-              </button>
-            ) : (
-              <button
-                id="detailFave"
-                className="faveButton"
-                key={show.id}
-                type="submit"
-                onClick={() => setFavorites([...favorites, show])}
-              >
-              </button> */}
           </div>
         </Col>
         <Col></Col>

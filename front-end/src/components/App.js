@@ -9,17 +9,31 @@ function App() {
   const [data, setData] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
-  const [userId, setUserId] = useState(1);
-  const [count, setCount] = useState(0);
+  const [render, setRender] = useState(0);
+  const [currentUser, setCurrentUser] = useState(null);
+  console.log("is render being changed?", render);
 
   useEffect(() => {
     fetch("http://localhost:8080/items")
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((err) => alert(err));
-  }, []);
+  }, [render]);
+
   return (
-    <Context.Provider value={{ data, loggedIn, setLoggedIn, username, setUsername, userId, setUserId, count, setCount }}>
+    <Context.Provider
+      value={{
+        data,
+        loggedIn,
+        setLoggedIn,
+        username,
+        setUsername,
+        currentUser,
+        setCurrentUser,
+        render,
+        setRender,
+      }}
+    >
       <Navbar />
       <RouteHandler />
     </Context.Provider>
