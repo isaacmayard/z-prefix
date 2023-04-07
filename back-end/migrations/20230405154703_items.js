@@ -5,7 +5,7 @@
 exports.up = function (knex) {
   return knex.schema.createTable("items", (table) => {
     table.increments("id").primary();
-    table.integer('user_id').unsigned().notNullable();
+    table.integer('user_id').unsigned();
     table.foreign('user_id').references('id').inTable('users');
     table.string("item_name");
     table.varchar("description");

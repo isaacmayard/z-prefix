@@ -1,0 +1,8 @@
+.ml-5.text-black.row {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+h3:hover {
+  cursor: pointer;
+}
