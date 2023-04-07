@@ -33,29 +33,38 @@ const Register = () => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <h3>Register as a new inventory admin here!</h3>
-        <br></br>
-        <label>
-          Username:
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <button type="submit">Register</button>
+    <div className="Auth-form-container-admin">
+      <form
+        className="Auth-form"
+        onSubmit={handleSubmit}
+        style={{ backgroundColor: "rgb(37, 37, 125)" }}
+      >
+        <div className="Auth-form-content">
+          <h3 className="Auth-form-title text-light">Register here!</h3>
+          <div className="form-group mt-3">
+            <input
+              type="text"
+              className="form-control mt-1"
+              placeholder="username"
+              onChange={(event) => setUsername(event.target.value)}
+            />
+          </div>
+          <div className="form-group mt-3">
+            <input
+              type="password"
+              className="form-control mt-1"
+              placeholder="password"
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </div>
+          <div className="d-grid gap-2 mt-3">
+            <button type="submit" className="btn btn-outline-light">
+              Register
+            </button>
+          </div>
+        </div>
       </form>
-    </>
+    </div>
   );
 };
 

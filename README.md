@@ -45,6 +45,8 @@
 
 * Run `npm start` to start running your back-end 
 
+* The faker seed data is currently set for only 5 entries, but can support any number of items.
+
 **4. Front-end**
 
 **NOTE: be sure to change directory to the front-end**

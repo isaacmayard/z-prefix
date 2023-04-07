@@ -1,14 +1,13 @@
 .nav {
   height: 100px;
   background: rgb(37, 37, 125);
-  margin-bottom: 0px;
   border-bottom: 5px solid;
 }
 
 .logout {
   display: flex;
   justify-content: right;
-  margin-right: 5%;
+  margin-right: 2.5%;
   margin-top: 3%;
 }
 
@@ -19,7 +18,7 @@
 
 .user-span {
   margin-top: 0.7%;
-  margin-right: 5%;
+  margin-right: 2%;
 }
 
 .user-span:hover {
@@ -28,4 +27,8 @@
 
 h1:hover {
   cursor: pointer;
+}
+
+.btn.btn-light {
+  margin-right: 2%;
 }
