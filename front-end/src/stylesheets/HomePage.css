@@ -6,3 +6,7 @@
 h3:hover {
   cursor: pointer;
 }
+
+#home-img:hover {
+  margin-top: -5px;
+}

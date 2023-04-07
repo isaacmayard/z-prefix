@@ -36,6 +36,7 @@ const PersonalPage = () => {
               style={{ width: "18.5%" }}
             >
               <img
+              id="home-img"
                 src="https://i.pinimg.com/originals/6f/47/98/6f4798c65de92b06ea619f5453929c1a.jpg"
                 alt="..."
                 style={{ height: "350px", width: "300px" }}

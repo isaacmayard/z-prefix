@@ -15,6 +15,7 @@ const HomePage = () => {
       {data.map((item) => (
         <div className="showContainer" key={item.id} style={{ width: "18.5%" }}>
           <img
+          id="home-img"
             src="https://i.pinimg.com/originals/6f/47/98/6f4798c65de92b06ea619f5453929c1a.jpg"
             alt="..."
             style={{ height: "350px", width: "300px" }}
@@ -51,35 +52,3 @@ const HomePage = () => {
   );
 };
 export default HomePage;
-
-//           {/* <img
-//             className="fave-images"
-//             onClick={() => goToShow(show)}
-//             src={show.image.original}
-//             alt=""
-//             style={{ height: "350px", width: "250px" }}
-//           /> */}
-//           {/* {favorites.find((favorite) => favorite.name === show.name) ? (
-//             <button
-//               className="faveButton"
-//               key={show.id}
-//               type="submit"
-//               onClick={() =>
-//                 setFavorites(favorites.filter((fave) => fave !== show))
-//               }
-//             > */}
-// {/*
-//             </button>
-//           ) : (
-//             <button
-//               className="faveButton"
-//               key={show.id}
-//               type="submit"
-//               onClick={() => setFavorites([...favorites, show])}
-//             >
-//               <Icon.Heart />
-//             </button>
-//           )}
-//           <h4>{show.name}</h4>
-//         </div>
-//       ))} */}

@@ -20,7 +20,7 @@ const AdminPage = () => {
     setShowAlert(false);
     setAuthMode(value);
   };
-
+console.log("HERE", userId)
   const handleDeleteUser = () => {
     fetch("http://localhost:8080/users-mgmt", {
       method: "DELETE",
