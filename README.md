@@ -93,6 +93,8 @@
 
 **Key Notes, "If I had more time", and bugs(if any)**
 
+> Key Note: if you register, and then create an item, you cannot delete that user without first deleting the item you created, otherwise you'll get a foreign key reference error and the backend will crash. All the items depend on that specific user ID to be displayed. Since 'mayard' is the default admin, that account cannot be deleted.
+
 > IIHMT, I would implement a cookie upon successful login that would keep your credentials persistent between page refreshes. Currently, if you refresh the page, you have to start over again, but functionality is all there.
 
 > IIHMT, I would set up Bcrypt for the passwords as well.
