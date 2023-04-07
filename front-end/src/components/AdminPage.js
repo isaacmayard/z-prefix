@@ -1,17 +1,20 @@
 import React, { useRef, useState, useContext } from "react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
 import { DismissableAlert } from "./DismissableAlert";
 import { Context } from "./App";
 import "../stylesheets/AdminPage.css";
 
 const AdminPage = () => {
-  const { userId } = useContext(Context);
+  const { userId, count, setCount } = useContext(Context);
   const [authMode, setAuthMode] = useState("deleteUser");
   const [showAlert, setShowAlert] = useState(false);
   const [alertObj, setAlertObj] = useState({});
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
   let modificationObj = useRef({});
+  const navigate = useNavigate();
 
   const changeAuthMode = (value) => {
     setShowAlert(false);
@@ -287,7 +290,10 @@ const AdminPage = () => {
               <button
                 type="text"
                 className="btn btn-outline-primary"
-                onClick={() => handleAddItem()}
+                onClick={() => {
+                  handleAddItem();
+                  setCount(1)
+                }}
               >
                 Add Item
               </button>

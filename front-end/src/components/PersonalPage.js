@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { Row } from "react-bootstrap";
 import { Context } from "./App";
 
 import "../stylesheets/HomePage.css";
 
 const PersonalPage = () => {
+  const navigate = useNavigate();
   const [personalData, setPersonalData] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  const { userId } = useContext(Context);
-  const navigate = useNavigate();
+  const { userId, count } = useContext(Context);
 
   useEffect(() => {
     fetch("http://localhost:8080/personal-items", {
@@ -23,8 +23,8 @@ const PersonalPage = () => {
       .then((res) => res.json())
       .then((data) => setPersonalData(data))
       .then(() => setIsLoaded(true));
-  }, []);
-  console.log(personalData);
+  }, [count]);
+
   return (
     <Row className="ml-5 text-black text-center">
       <h2>Personal Inventory</h2>
@@ -46,6 +46,7 @@ const PersonalPage = () => {
                       name: item.item_name,
                       description: item.description,
                       quantity: item.quantity,
+                      url: item.imageURL,
                     },
                   })
                 }
@@ -65,6 +66,8 @@ const PersonalPage = () => {
               >
                 {item.item_name}
               </h3>
+              <p>{item.description}</p>
+              <p>Quantity: {item.quantity}</p>
               <br></br>
             </div>
           ))

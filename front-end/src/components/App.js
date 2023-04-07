@@ -10,6 +10,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [userId, setUserId] = useState(1);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     fetch("http://localhost:8080/items")
@@ -18,7 +19,7 @@ function App() {
       .catch((err) => alert(err));
   }, []);
   return (
-    <Context.Provider value={{ data, loggedIn, setLoggedIn, username, setUsername, userId, setUserId }}>
+    <Context.Provider value={{ data, loggedIn, setLoggedIn, username, setUsername, userId, setUserId, count, setCount }}>
       <Navbar />
       <RouteHandler />
     </Context.Provider>
